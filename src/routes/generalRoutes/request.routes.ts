@@ -8,6 +8,8 @@ router.get("/get_requests", verifyToken, requestController.getRequests);
 
 router.get("/get_request/:id", verifyToken, requestController.getRequestById);
 
+router.get("/get_request_by_employee/:id", verifyToken, requestController.getRequestByEmployee);
+
 router.post("/create_request", verifyToken, requestController.createRequest);
 
 router.put("/update_request", verifyToken, requestController.updateRequest);

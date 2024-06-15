@@ -63,10 +63,23 @@ const deleteRequest = async (id: number) => {
   }
 }
 
+const findRequestByEmployee = async (id: number) => {
+  const query = `SELECT * FROM SOLICITUD WHERE ID_EMPLEADO = $1`;
+  const values = [id];
+
+  try {
+    const result = await pool.query(query, values);
+    return result.rows;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export {
   createRequest,
   findRequestById,
   findAllRequests,
   updateRequest,
-  deleteRequest
+  deleteRequest,
+  findRequestByEmployee
 };

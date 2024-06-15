@@ -50,10 +50,21 @@ const deleteRequest = async (req: any, res: any) => {
   }
 }
 
+const getRequestByEmployee = async (req: any, res: any) => {
+  const { id } = req.params;
+  try {
+    const requests = await Request.findRequestByEmployee(id);
+    success(req, res, { requests }, 200, "0");
+  } catch (err) {
+    error(req, res, "Error al obtener solicitudes", 500, 'ocurrio un error', "1");
+  }
+}
+
 export {
   getRequests,
   getRequestById,
   createRequest,
   updateRequest,
-  deleteRequest
+  deleteRequest,
+  getRequestByEmployee
 };
