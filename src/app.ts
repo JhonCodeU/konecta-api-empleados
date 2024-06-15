@@ -23,7 +23,8 @@ app.get('/', (req, res) => {
   res.json({
     name: 'API REST para Konecta',
     author: 'John Arcila Castano',
-    description: 'Api para la gestion de clientes', 
+    description: 'Api para la gestion de clientes',
+    docs: '/api-docs', 
     version: '1.0.0',
   });
 });
