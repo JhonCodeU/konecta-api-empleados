@@ -41,6 +41,27 @@ Esta API RESTful proporciona endpoints para la gestión de empleados y sus solic
 
 4. Asegúrate de tener un usuario y contraseña configurados en PostgreSQL que coincidan con los datos de conexión en el archivo
 
+## Configuración de Base de Datos con Docker y PostgresSQL
+
+1. Descargar la imagen en docker de PostgresSQL: con este comando 
+```bash
+docker run -d --name image-postgres -e POSTGRES_PASSWORD=Admin2024* -p 5432:5432 postgres -c shared_buffers=256MB -c max_connections=200
+```
+
+2. Una vez conectado a psql, puedes crear un nuevo usuario (también llamado rol) con los datos que has proporcionado. Ejecuta los siguientes comandos SQL:
+```sql
+CREATE USER usuario01 WITH PASSWORD 'johncode2024*';
+```
+
+3. Ahora, debes concederle permisos al usuario para que pueda acceder a la base de datos postgres. Para otorgar permisos completos:
+```sql
+GRANT ALL PRIVILEGES ON DATABASE postgres TO usuario01;
+```
+
+4. Verificar que el usuario ha sido creado
+```sql
+\du
+```
 
 ## Ejecución
 
